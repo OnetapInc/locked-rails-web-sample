@@ -1,0 +1,15 @@
+current directory: /Users/goleador0322/onetapinc/sample_apps/5_1_2/ch14/vendor/cache/ruby/2.3.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20190714-5103-5hlbr8.rb extconf.rb
+creating Makefile
+
+current directory: /Users/goleador0322/onetapinc/sample_apps/5_1_2/ch14/vendor/cache/ruby/2.3.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/goleador0322/onetapinc/sample_apps/5_1_2/ch14/vendor/cache/ruby/2.3.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/goleador0322/onetapinc/sample_apps/5_1_2/ch14/vendor/cache/ruby/2.3.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20190714-5103-gbcfeq
