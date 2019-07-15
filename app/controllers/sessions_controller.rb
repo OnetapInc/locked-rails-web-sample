@@ -5,12 +5,22 @@ class SessionsController < ApplicationController
     #@session = Session.new
   end
 
+  # GET /verify
+  def verify
+    #@session = Session.new
+  end
+
   # GET /load
   def load
     user = User.find_by(locked_token: params[:token])
-    log_in user
-    remember(user)
-    redirect_to user
+    if user && user.activated?
+      log_in user
+      remember(user)
+      redirect_to user
+    else
+      flash[:warning] = "アカウント情報の読み込みに失敗しました"
+      redirect_to root_url
+    end
   end
 
   # POST /login
@@ -27,7 +37,7 @@ class SessionsController < ApplicationController
             user_ip: request.remote_ip,
             user_agent: request.user_agent,
             email: user.email,
-            callback_url: 'https://locked.jp/login/result'
+            callback_url: 'http://0.0.0.0:3000/load'
           )
         rescue Locked::Error => e
           puts e.message
