@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails',          '5.2.1'
-gem 'actionview',     '5.2.1'
+gem 'rails',          '5.2.2'
+gem 'actionview',     '5.2.2'
+gem 'railties',       '5.2.2'
 gem 'bootstrap-sass', '>= 3.4.1'
 gem 'bcrypt',         '3.1.11'
 gem 'faker',          '1.7.3'
