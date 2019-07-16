@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',        '5.1.2'
+gem 'rails',        '5.2.1'
 gem 'bootstrap-sass', '3.3.7'
 gem 'bcrypt',         '3.1.11'
 gem 'faker',          '1.7.3'
@@ -28,7 +28,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console',           '3.5.1'
+  gem 'web-console'
   gem 'listen',                '3.0.8'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
