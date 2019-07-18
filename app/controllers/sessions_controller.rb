@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
   # GET /load
   def load
-    user = User.find_by(locked_token: params[:token])
+    user = User.where('locked_token_expired_at > ?', Time.zone.now).find_by(locked_token: params[:token])
     if user && user.activated?
       log_in user
       remember(user)
@@ -49,7 +49,10 @@ class SessionsController < ApplicationController
           params[:session][:remember_me] == '1' ? remember(user) : forget(user)
           redirect_back_or user
         when 'verify'
-          user.update!(locked_token: result[:data][:verify_token])
+          user.update!(
+            locked_token: result[:data][:verify_token],
+            locked_token_expired_at: Time.zone.now + 1.hour
+          )
           render 'verify'
         when 'deny'
           flash.now[:danger] = '不正ログインの可能性が高いため、ログインできませんでした'
