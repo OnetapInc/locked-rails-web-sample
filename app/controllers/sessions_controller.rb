@@ -1,5 +1,5 @@
+require 'locked/support/rails'
 class SessionsController < ApplicationController
-
   # GET /login
   def new
     #@session = Session.new
