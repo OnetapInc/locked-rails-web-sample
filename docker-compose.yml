@@ -1,6 +1,6 @@
 version: '3'
 services:
-  app:
+  sample_app:
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -48,3 +48,8 @@ volumes:
     driver: local
   node_cache:
     driver: local
+
+networks:
+  default:
+    external:
+      name: locked_default
