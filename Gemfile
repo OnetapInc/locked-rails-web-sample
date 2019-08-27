@@ -23,7 +23,7 @@ gem 'jbuilder',     '2.7.0'
 gem 'therubyracer'
 
 gem 'nokogiri'
-gem 'locked-rb'
+gem 'locked-rb', :git => "https://github.com/OnetapInc/locked-ruby.git", :branch => "fix/adopt-docker"
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -35,6 +35,9 @@ group :development do
   gem 'listen',                '3.0.8'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :test do
