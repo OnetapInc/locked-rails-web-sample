@@ -27,6 +27,8 @@ services:
       RAILS_DATABASE_NAME: locked_dev
       RAILS_DATABASE_PORT: 3307
       BUNDLE_PATH: /app/vendor/bundle
+      DOCKER_USE: 1
+      LOCKED_RUBY_DEV_MODE: 'on'
   mysqld:
     image: mysql:5.7
     environment:

@@ -31,7 +31,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
   host = 'railstutorial-yasulab.c9users.io'
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
-
+  
+  # https://qiita.com/suin/items/9b567c63af73b235e458
+  config.web_console.whitelisted_ips = '0.0.0.0/0'
 
   config.action_mailer.perform_caching = false
 
