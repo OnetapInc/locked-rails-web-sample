@@ -21,6 +21,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'therubyracer'
+gem 'mysql2'
 
 gem 'nokogiri'
 gem 'locked-rb', :git => "https://github.com/OnetapInc/locked-ruby.git", :branch => "fix/adopt-docker"
