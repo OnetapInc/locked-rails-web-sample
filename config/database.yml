@@ -5,21 +5,44 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  reconnect: false
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  username: <%= ENV['RAILS_DATABASE_USERNAME'] || 'lockeduser' %>
+  password: <%= ENV['RAILS_DATABASE_PASSWORD'] || 'LockedPass!0507' %>
+  host: <%= ENV['RAILS_DATABASE_HOST'] || '127.0.0.1' %>
+  database: <%= ENV['RAILS_DATABASE_NAME'] || 'locked_dev' %>
+  port: <%= ENV['RAILS_DATABASE_PORT'] || '3306' %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  username: <%= ENV['RAILS_DATABASE_USERNAME'] || 'lockeduser' %>
+  password: <%= ENV['RAILS_DATABASE_PASSWORD'] || 'LockedPass!0507' %>
+  host: <%= ENV['RAILS_DATABASE_HOST'] || '127.0.0.1' %>
+  database: <%= ENV['RAILS_DATABASE_NAME'] || 'locked_test' %>
+  port: <%= ENV['RAILS_DATABASE_PORT'] || '3306' %>
+
+staging:
+  <<: *default
+  username: <%= ENV['RAILS_DATABASE_USERNAME'] %>
+  password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
+  host: <%= ENV['RAILS_DATABASE_HOST'] %>
+  database: <%= ENV['RAILS_DATABASE_NAME'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  username: <%= ENV['RAILS_DATABASE_USERNAME'] || 'LockedUserPro' %>
+  password: <%= ENV['RAILS_DATABASE_PASSWORD'] || 'Kp1JBF3VadE3q!' %>
+  host: <%= ENV['RAILS_DATABASE_HOST'] || 'localhost' %>
+  database: <%= ENV['RAILS_DATABASE_NAME'] || 'locked_prod' %>
