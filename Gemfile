@@ -24,7 +24,7 @@ gem 'therubyracer'
 gem 'mysql2'
 
 gem 'nokogiri'
-gem 'locked-rb', :git => "https://github.com/OnetapInc/locked-ruby.git", :branch => "fix/adopt-docker"
+gem 'locked-rb'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
