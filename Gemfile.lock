@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/OnetapInc/locked-ruby.git
+  revision: fa02ba4dad91236a29a709c56d957d7e162326f2
+  branch: fix/adopt-docker
+  specs:
+    locked-rb (0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -248,7 +255,6 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    locked-rb (0.0.3)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -408,7 +414,7 @@ DEPENDENCIES
   jbuilder (= 2.7.0)
   jquery-rails (= 4.3.1)
   listen (= 3.0.8)
-  locked-rb
+  locked-rb!
   mini_magick (= 4.9.4)
   minitest-reporters (= 1.1.14)
   mysql2
