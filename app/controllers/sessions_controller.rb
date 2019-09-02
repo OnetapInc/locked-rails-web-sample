@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
         result = nil
         begin
           result = locked.authenticate(
-            event: '$login.diagnosis',
+            event: '$login.attempt',
             user_id: "user#{user.id}",
             user_ip: request.remote_ip,
             user_agent: request.user_agent,
