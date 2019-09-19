@@ -42,8 +42,9 @@ class SessionsController < ApplicationController
         rescue Locked::Error => e
           puts e.message
         end
-
         case result[:data][:action]
+        when 'none'
+          p '診断モードです'
         when 'allow'
           log_in user
           params[:session][:remember_me] == '1' ? remember(user) : forget(user)
@@ -55,6 +56,7 @@ class SessionsController < ApplicationController
           )
           render 'verify'
         when 'deny'
+
           flash.now[:danger] = '不正ログインの可能性が高いため、ログインできませんでした'
           render 'new'
         end
