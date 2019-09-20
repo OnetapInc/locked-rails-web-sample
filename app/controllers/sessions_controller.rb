@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
             user_ip: request.remote_ip,
             user_agent: request.user_agent,
             email: user.email,
-            callback_url: 'https://rails-locked-sample.herokuapp.com/load'
+            callback_url: 'http://0.0.0.0:3000/load'
           )
         rescue Locked::Error => e
           puts e.message
