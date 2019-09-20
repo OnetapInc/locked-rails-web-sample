@@ -46,17 +46,19 @@ class SessionsController < ApplicationController
         when 'none'
           p '診断モードです'
         when 'allow'
+          p 'allowです'
           log_in user
           params[:session][:remember_me] == '1' ? remember(user) : forget(user)
           redirect_back_or user
         when 'verify'
+          p 'verifyです'
           user.update!(
             locked_token: result[:data][:verify_token],
             locked_token_expired_at: Time.zone.now + 1.hour
           )
           render 'verify'
         when 'deny'
-
+          p 'denyです'
           flash.now[:danger] = '不正ログインの可能性が高いため、ログインできませんでした'
           render 'new'
         end
