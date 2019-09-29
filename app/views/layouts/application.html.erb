@@ -6,7 +6,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
-    <script src="https://locked-cdn-prod.s3-ap-northeast-1.amazonaws.com/bundle.js?v=1"></script>
+    <script src="https://cdn.jsdelivr.net/gh/OnetapInc/Locked_cdn@8.1.3/dist/bundle.js"></script>
+    <%# <script src="https://locked-cdn-prod.s3-ap-northeast-1.amazonaws.com/bundle.js?v=1"></script> %>
   </head>
 
   <body>
@@ -21,7 +22,7 @@
     </div>
   </body>
   <script>
-      let cli = new Locked('ce3df565723d71df866e6beced79');
+      let cli = new Locked('e014b5f873b7e6db5cbcbb323467');
       cli.identify('8888888',30)
     </script>
 </html>
