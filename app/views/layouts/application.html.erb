@@ -6,7 +6,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
-    <script src="https://locked-cdn-prod.s3-ap-northeast-1.amazonaws.com/bundle.js?v=1"></script>
+    <script src="https://locked-cdn-prod.s3-ap-northeast-1.amazonaws.com/bundle.js?v=1"></script><%# production %>
+    <script src="https://locked-cdn-dev.s3.amazonaws.com/bundle.js"></script><%# development %>
   </head>
 
   <body>
@@ -21,7 +22,7 @@
     </div>
   </body>
   <script>
-      let cli = new Locked('ce3df565723d71df866e6beced79');
+      let cli = new Locked({clientKey: '28d68804172843b1a8be1388bb68',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', '28d68804172843b1a8be1388bb68', 'bac23dfba533b65731a845c500b8') %>'})
       cli.identify('8888888',30)
     </script>
 </html>
