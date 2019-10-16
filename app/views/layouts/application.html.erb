@@ -6,7 +6,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
-    <script src="https://locked-cdn-prod.s3-ap-northeast-1.amazonaws.com/bundle.js?v=1"></script>
+    <%# production %>
+    <%# <script src="https://locked-cdn-prod.s3-ap-northeast-1.amazonaws.com/bundle.js?v=1"></script> %>
+    <%# development %>
+    <script src="https://locked-cdn-dev.s3.amazonaws.com/bundle.js"></script>
   </head>
 
   <body>
@@ -21,7 +24,8 @@
     </div>
   </body>
   <script>
-      let cli = new Locked('ce3df565723d71df866e6beced79');
-      cli.identify('8888888',30)
+      // 各自で変更
+      let cli = new Locked({clientKey: '80cacdd29108989b97070e5f0343',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', '80cacdd29108989b97070e5f0343', '893f0f4c382547b7e353c50cd835') %>'})
+      cli.identify({userId: '8888888',cacheTtl: 30})
     </script>
 </html>
