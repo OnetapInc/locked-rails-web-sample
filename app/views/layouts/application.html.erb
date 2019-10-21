@@ -25,11 +25,14 @@
   </body>
   <script>
     // 秘匿モード
-    let cli = new Locked({clientKey: '25256ae4475650c4fac4d5fe8782',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', '25256ae4475650c4fac4d5fe8782', 'b4f07014ad46f633f6c0044d29e0') %>'})
+    let cli = new Locked({clientKey: '25256ae4475650c4fac4d5fe8782',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', '25256ae4475650c4fac4d5fe8782', '318ab6c85800c0a214f3bb2e4cce5d6f') %>'})
     cli.monitor({email: 'kajirikajiri@gmail.com', userId: '12345678'})
 
     // 一行実装
-    let cli = new Locked({clientKey: '25256ae4475650c4fac4d5fe8782',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', '25256ae4475650c4fac4d5fe8782', 'b4f07014ad46f633f6c0044d29e0') %>'})
-    cli.monitor({email: '<%= encrypt('kajirikajiri@gmail.com', 'b4f07014ad46f633f6c0044d29e0') %>', userId: '12345678'})
+    // let cli = new Locked({clientKey: '25256ae4475650c4fac4d5fe8782',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', '25256ae4475650c4fac4d5fe8782', '318ab6c85800c0a214f3bb2e4cce5d6f') %>'})
+    // cli.monitor({
+    //   email: '<%= encrypt('kajirikajiri@gmail.com', '318ab6c85800c0a214f3bb2e4cce5d6f') %>',
+    //   userId: '12345678'
+    //   })
   </script>
 </html>
