@@ -24,12 +24,8 @@
     </div>
   </body>
   <script>
-    // 秘匿モード
-    let cli = new Locked({clientKey: '25256ae4475650c4fac4d5fe8782',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', '25256ae4475650c4fac4d5fe8782', 'b4f07014ad46f633f6c0044d29e0') %>'})
-    cli.monitor({email: 'kajirikajiri@gmail.com', userId: '12345678'})
-
-    // 一行実装
-    let cli = new Locked({clientKey: '25256ae4475650c4fac4d5fe8782',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', '25256ae4475650c4fac4d5fe8782', 'b4f07014ad46f633f6c0044d29e0') %>'})
-    cli.monitor({email: '<%= encrypt('kajirikajiri@gmail.com', 'b4f07014ad46f633f6c0044d29e0') %>', userId: '12345678'})
-  </script>
+      // 各自で変更
+      let cli = new Locked({clientKey: '80cacdd29108989b97070e5f0343',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', '80cacdd29108989b97070e5f0343', '893f0f4c382547b7e353c50cd835') %>'})
+      cli.identify({userId: '8888888',cacheTtl: 30})
+    </script>
 </html>
