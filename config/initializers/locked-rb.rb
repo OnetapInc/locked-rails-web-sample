@@ -1,12 +1,12 @@
 Locked.configure do |config|
   # Same as setting it through Locked.api_key
-  config.api_key = 'e559c34e8a61c29de73a2ae3706f' #各自で変更
+  config.api_key = 'f4756e0012bd224fda41d178b217' #各自で変更
 
   # For authenticate method you can set failover strategies: deny (default), allow, verify, throw
   config.failover_strategy = :deny
 
   # Locked::RequestError is raised when timing out in milliseconds (default: 1000 milliseconds)
-  config.request_timeout = 2000
+  config.request_timeout = 10000
 
   # Whitelisted and Blacklisted headers are case insensitive and allow to use _ and - as a separator, http prefixes are removed
   # Whitelisted headers

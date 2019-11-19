@@ -45,6 +45,9 @@ class SessionsController < ApplicationController
         case result[:data][:action]
         when 'none'
           p '診断モードです'
+          message = '認証モードにしてください。診断モードでは利用できません。'
+          flash[:warning] = message
+          redirect_to login_url
         when 'allow'
           p 'allowです'
           log_in user
