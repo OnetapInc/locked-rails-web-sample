@@ -23,9 +23,12 @@
     <% end %>
   </div>
 </div>
-<%# 診断モード %>
+<%# 診断モードではコメントアウトを解除 %>
 <%# <%= javascript_tag do %> %>
-    <%# let cli = new Locked({clientKey: 'a03a89573a21976c43c98e3b8a81',signature: '<%= OpenSSL::HMAC.hexdigest('sha256', 'a03a89573a21976c43c98e3b8a81', '10073bcf6d232e86f74cfb42051df12c') %>'}) %>
+    <%# let cli = new Locked({ %>
+      <%# clientKey: 'a03a89573a21976c43c98e3b8a81', %>
+      <%# signature: '<%= OpenSSL::HMAC.hexdigest('sha256', 'a03a89573a21976c43c98e3b8a81', '10073bcf6d232e86f74cfb42051df12c') %>' %>
+    <%# }) %>
     <%# cli.monitor({email: '<%= encrypt(@user.email, '10073bcf6d232e86f74cfb42051df12c') %>', userId: '<%= @user.id%>'}) %>
 <%# <% end %> %>
-<%# 診断モード %>
+<%# 診断モードではコメントアウトを解除 %>
