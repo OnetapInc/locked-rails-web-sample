@@ -6,7 +6,7 @@ Locked.configure do |config|
   config.failover_strategy = :deny
 
   # Locked::RequestError is raised when timing out in milliseconds (default: 1000 milliseconds)
-  config.request_timeout = 2000
+  config.request_timeout = 10000
 
   # Whitelisted and Blacklisted headers are case insensitive and allow to use _ and - as a separator, http prefixes are removed
   # Whitelisted headers

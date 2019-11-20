@@ -26,6 +26,9 @@ class SessionsController < ApplicationController
   # POST /login
   def create
     user = User.find_by(email: params[:session][:email])
+    ################################
+    # 診断モードでは下記をコメントアウト
+    #################################
     if user && user.authenticate(params[:session][:password])
       if user.activated?
         # Success
@@ -34,7 +37,7 @@ class SessionsController < ApplicationController
           result = locked.authenticate(
             event: '$login.attempt',
             user_id: "user#{user.id}",
-            user_ip: request.remote_ip,
+            user_ip: request.remote_ip, # localhostのipaddressで不具合があるときは固定値を設定する '223.218.185.134'
             user_agent: request.user_agent,
             email: user.email,
             callback_url: 'https://rails-locked-sample.herokuapp.com/load'
@@ -45,11 +48,20 @@ class SessionsController < ApplicationController
         case result[:data][:action]
         when 'none'
           p '診断モードです'
+          message = '認証モードにしてください。診断モードでは利用できません。'
+          flash[:warning] = message
+          redirect_to login_url
         when 'allow'
           p 'allowです'
+    ################################
+    # 診断モードでは上記をコメントアウト
+    #################################
           log_in user
           params[:session][:remember_me] == '1' ? remember(user) : forget(user)
           redirect_back_or user
+    ################################
+    # 診断モードでは下記をコメントアウト
+    #################################
         when 'verify'
           p 'verifyです'
           user.update!(
@@ -74,6 +86,9 @@ class SessionsController < ApplicationController
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
+    ################################
+    # 診断モードでは上記をコメントアウト
+    #################################
   end
 
   # DELETE /logout
