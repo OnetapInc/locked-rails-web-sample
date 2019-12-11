@@ -1,6 +1,6 @@
 Locked.configure do |config|
   # Same as setting it through Locked.api_key
-  config.api_key = 'e559c34e8a61c29de73a2ae3706f' #各自で変更
+  config.api_key = '58f7863b92a44a677f93860f53d9' #各自で変更
 
   # For authenticate method you can set failover strategies: deny (default), allow, verify, throw
   config.failover_strategy = :deny

@@ -1,0 +1,49 @@
+<h1>Verdict verify</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    本人確認のサンプルです。本当にあなたですか？
+    '<%= @result[:user_ip] %>'
+  </div>
+  <input type="button" onclick="verify_allow()" value="そうですわたしです">
+  <input type="button" onclick="verify_deny()" value="わたしではない">
+</div>
+
+<script>
+  function verify_allow()
+{
+var http = new XMLHttpRequest();
+var url = 'http://localhost:3000/api/v1/client/allow_verification';
+// var params = 'orem=ipsum&name=binny';
+var params = 'piyo=piyo&token=' + '<%= @user.locked_token %>&koge=koge' + '&user-ip=' + '<%= @result[:user_ip] %>';
+http.open('POST', url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+    }
+}
+http.send(params);
+}
+  function verify_deny()
+{
+var http = new XMLHttpRequest();
+var url = 'http://localhost:3000/api/v1/client/deny_verification';
+// var params = 'orem=ipsum&name=binny';
+var params = 'piyo=piyo&token=' + '<%= @user.locked_token %>&koge=koge' + '&user-ip=' + '<%= @result[:user_ip] %>';
+http.open('POST', url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+    }
+}
+http.send(params);
+}
+</script>
