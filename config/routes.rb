@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
+  get    '/only_verdict_login',   to: 'sessions#only_verdict_login'
+  post   '/only_verdict_login',   to: 'sessions#only_verdict_login_create'
+  get    '/only_verdict_verify',   to: 'sessions#only_verdict_verify'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   get    '/verify',   to: 'sessions#verify'
