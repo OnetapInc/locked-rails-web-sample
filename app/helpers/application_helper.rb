@@ -8,4 +8,12 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+  
+  def clientKey
+    'fadfb50ceb664c2a4701951852db'
+  end
+
+  def secureSalt
+    'fdd52850738a873b9edbeffa21ea56b6'
+  end
 end

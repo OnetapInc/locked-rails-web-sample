@@ -1,0 +1,10 @@
+<p>診断モードでログインしました</p>
+<p>通信に成功していればdockerのlocked-apiに通信しているはずです</p>
+<p>失敗なら、browserのコンソールかネットワークにエラーがひょうじされているはずです</p>
+<%= javascript_tag do %>
+  let cli = new Locked({
+    clientKey: '<%= clientKey %>',
+    signature: '<%= OpenSSL::HMAC.hexdigest('sha256', clientKey, secureSalt) %>'
+  })
+  cli.monitor({email: '<%= encrypt(@user.email, secureSalt) %>', userId: '<%= @user.id%>'})
+<% end %>

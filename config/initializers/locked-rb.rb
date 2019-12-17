@@ -1,5 +1,10 @@
 Locked.configure do |config|
   # Same as setting it through Locked.api_key
+  ##################################
+  #
+  # api_keyを変更したら、dockerを立ち上げ直してね！！！！！！！！！
+  #
+  ##################################
   config.api_key = '58f7863b92a44a677f93860f53d9' #各自で変更
 
   # For authenticate method you can set failover strategies: deny (default), allow, verify, throw
