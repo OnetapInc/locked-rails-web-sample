@@ -48,6 +48,7 @@ class SessionsController < ApplicationController
         case result[:data][:action]
         when 'none'
           authenticate_none
+          redirect_to authenticate_login_url
         when 'allow'
           authenticate_allow
         when 'verify'
@@ -91,6 +92,7 @@ class SessionsController < ApplicationController
         case result[:data][:action]
         when 'none'
           authenticate_none
+          redirect_to only_verdict_login_url
         when 'allow'
           authenticate_allow
         when 'verify'
@@ -156,7 +158,6 @@ class SessionsController < ApplicationController
   def authenticate_none
     message = '認証モードにしてください。診断モードでは利用できません。'
     flash[:warning] = message
-    redirect_to login_url
   end
 
   def render_diagnosis_logined_page
