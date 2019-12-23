@@ -29,10 +29,26 @@
     <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
     sample application.
   </h2>
-
+  
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+<ul>
+  <hr>
+  認証モード
+  <li>
+    <%= link_to "認証モード login", authenticate_login_path %>
+  </li>
+  <li>
+    <%= link_to "Only verdict login(エンドユーザーのリスクスコア判定のみLockedが行います)", only_verdict_login_path %>
+  </li>
+  <hr>
+  診断モード
+  <li>
+    <%= link_to "診断モード login", diagnosis_login_path %>
+  </li>
+  <hr>
+</ul>
             
 <% end %>          
