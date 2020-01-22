@@ -11,7 +11,35 @@
 ・LockedのRuby gemはこちらを参照ください。[locked-ruby](https://github.com/OnetapInc/locked-ruby)
 
 
-## 動作確認方法
+## ステージングで動かすには
+### 診断モード
+app/views/layouts/application.html.erb
+  ステージングのcdnをun-comment-out
+app/helpers/application_helper.rb
+```:clientKey, sesucreSaltを変更
+  def clientKey
+    '972e0bf855e95b36cd6c832e4de5'
+  end
+
+  def secureSalt
+    '45770fd6be933cb220f7f6630ccb6007'
+  end
+```
+## 認証モード
+config/initializers/locked-rb.rb
+```:add
+config.host = 'stg.locked.jp'
+config.port = 443
+config.api_key = YOUR_API_KEY
+// docker-composeをrestart
+```
+docker-compose.yml
+```:comment-out
+  DOCKER_USE: 1
+  LOCKED_RUBY_DEV_MODE: 'on'
+```
+
+## 動作確認方法 なにこれ
 
 このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
 その後、次のコマンドで必要になる RubyGems をインストールします。
