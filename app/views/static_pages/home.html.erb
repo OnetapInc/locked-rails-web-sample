@@ -12,7 +12,7 @@
         <%= render 'shared/micropost_form' %>
       </section>
     </aside>
-    
+
     <div class="col-md-8">
       <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
@@ -29,7 +29,7 @@
     <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
     sample application.
   </h2>
-  
+
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
 
@@ -49,6 +49,14 @@
     <%= link_to "診断モード login", diagnosis_login_path %>
   </li>
   <hr>
+  <hr>
+  ２段階認証の実演
+  <li>
+    <%= link_to "ログイン画面", demos_new_path %>
+  </li>
+  <li>
+    <%= link_to "デモアカウント一覧", "/demos/index" %>
+  </li>
 </ul>
-            
-<% end %>          
+
+<% end %>

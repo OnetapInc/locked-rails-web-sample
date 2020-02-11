@@ -31,6 +31,7 @@ services:
       LOCKED_RUBY_DEV_MODE: 'on'
   mysqld:
     image: mysql:5.7
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     environment:
       MYSQL_DATABASE: 'locked_dev'
       MYSQL_ROOT_PASSWORD: 'root'

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:title)) %></title>    
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -9,9 +9,9 @@
     <%# production %>
     <%# <script src="https://locked-cdn-prod.s3-ap-northeast-1.amazonaws.com/bundle.js?v=1"></script> %>
     <%# development %>
-    <%# <script src="https://locked-cdn-dev.s3.amazonaws.com/bundle.js"></script> %>
+    <script src="https://locked-cdn-dev.s3.amazonaws.com/bundle.js"></script>
     <%# staging %>
-    <script src="https://locked-cdn-stg.s3-ap-northeast-1.amazonaws.com/bundle.js"></script>
+    <!-- <script src="https://locked-cdn-stg.s3-ap-northeast-1.amazonaws.com/bundle.js"></script> -->
   </head>
 
   <body>
@@ -22,7 +22,6 @@
       <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

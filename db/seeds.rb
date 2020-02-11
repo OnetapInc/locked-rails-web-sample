@@ -1,28 +1,20 @@
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
-             admin: true,
-             activated: true,
-             activated_at: Time.zone.now)
 
-99.times do |n|
-  name     = Faker::Name.name
-  email    = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now)
-end
-
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
-end
+Micropost.delete_all
+User.delete_all
+4.times {|index|
+  hash = SecureRandom.hex(4)
+  user = User.find_or_initialize_by(
+    name:  "Locked Demo #{index}(#{hash})",
+    email: "takeda+#{hash}@locked.jp",
+    phone_number: "09014201224",
+    activated: true,
+  )
+  user.save!({
+    password:              "onetap0507",
+    password_confirmation: "onetap0507"
+  })
+}
+User.update_all(activated: true, activated_at: Time.zone.now)
 
 users = User.all
 user  = users.first
@@ -30,3 +22,8 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.microposts.create!(content: content) }
+end

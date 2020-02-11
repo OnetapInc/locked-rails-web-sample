@@ -5,7 +5,7 @@ Locked.configure do |config|
   # api_keyを変更したら、dockerを立ち上げ直してね！！！！！！！！！
   #
   ##################################
-  config.api_key = 'de4bf6f63e05080dbf2573341f56' #各自で変更
+  config.api_key = 'ce29e4977346f3070ff61c4a4026' #各自で変更
 
   # For authenticate method you can set failover strategies: deny (default), allow, verify, throw
   config.failover_strategy = :deny
@@ -23,6 +23,6 @@ Locked.configure do |config|
   config.blacklisted = ['HTTP-X-header']
   # or append to default
   config.blacklisted += ['X_HEADER']
-  config.host = 'stg.locked.jp'
-  config.port = 443
+  # config.host = 'stg.locked.jp'
+  # config.port = 443
 end

@@ -1,0 +1,56 @@
+<h2>登録ユーザ一覧(名前・メールアドレス・登録日・最終ログイン日)</h2>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>メールアドレス</th>
+        <th>電話番号</th>
+        <th>作成日</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= user.id %>
+          </td>
+          <td>
+            <%= user.name %>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= user.phone_number || 'empty' %>
+          </td>
+          <td>
+            <%= user.created_at %>
+          </td>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
+</div>
+
+
+<style>
+  /* table */
+  table {
+    border-spacing: 0;
+    width: 100%;
+  }
+  table > tr {
+    vertical-align: middle;
+  }
+  td:first-child, th:first-child {
+    padding-left: 0;
+  }
+  td, th {
+    border-bottom: 1px solid #e1e1e1;
+    border-bottom: .1rem solid #e1e1e1;
+    padding: 12px 15px;
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+  }
+</style>

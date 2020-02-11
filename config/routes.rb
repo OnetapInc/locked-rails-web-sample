@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
 
   get 'sessions/new'
+  get 'demos/index'
+  get 'demos/new'
+  post '/demos', to: 'demos#create'
+  get 'demos/verify'
+  get 'demos/load'
 
   root 'static_pages#home' # => root_path
   get  '/help',    to: 'static_pages#help'

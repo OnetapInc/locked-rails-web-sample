@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_000000) do
+ActiveRecord::Schema.define(version: 2019_07_14_000001) do
 
   create_table "microposts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "content"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_07_14_000000) do
     t.datetime "reset_sent_at"
     t.string "locked_token", limit: 256
     t.datetime "locked_token_expired_at"
+    t.string "phone_number", limit: 256
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
