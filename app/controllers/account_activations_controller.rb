@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccountActivationsController < ApplicationController
   def edit
     user = User.find_by(email: params[:email])
@@ -5,11 +7,11 @@ class AccountActivationsController < ApplicationController
       # Success => Signup
       user.activate
       log_in user
-      flash[:success] = "Account activated!"
+      flash[:success] = 'Account activated!'
       redirect_to user
     else
       # Failure
-      flash[:danger] = "Invalid activation link"
+      flash[:danger] = 'Invalid activation link'
       redirect_to root_url
     end
   end

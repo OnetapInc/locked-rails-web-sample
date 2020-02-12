@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Relationship < ApplicationRecord
   # belongs_to :user => user_id == @user.id
   #              => follower_id == @user.id

@@ -11,7 +11,7 @@
         <%= render 'shared/stats' %>
       </section>
   </aside>
-  
+
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
@@ -23,3 +23,8 @@
     <% end %>
   </div>
 </div>
+
+<%= javascript_tag do %>
+  let cli = new Locked({clientKey: '<%= clientKey %>'})
+  cli.monitor({email: '<%= @user.email %>', userId: '<%= @user.name %>'})
+<% end %>
