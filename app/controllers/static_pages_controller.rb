@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
@@ -9,8 +11,7 @@ class StaticPagesController < ApplicationController
     # app/views/static_pages/home.html.erb
   end
 
-  def help
-  end
+  def help; end
 
   def about
     # 'app/views/static_pages/about.html.erb'

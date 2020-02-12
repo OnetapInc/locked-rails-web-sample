@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
     redirect_back_or user
   end
 
-# POST /authenticate_login
+  # POST /authenticate_login
   def authenticate_login_create
     user = User.find_by(email: params[:session][:email])
     if user&.authenticate(params[:session][:password])
@@ -137,20 +137,20 @@ class SessionsController < ApplicationController
       callback_url: 'https://rails-locked-sample.herokuapp.com/load'
     }
   end
-  
+
   def authenticate_allow
     log_in user
     params[:session][:remember_me] == '1' ? remember(user) : forget(user)
     redirect_back_or user
   end
-  
+
   def authenticate_verify(result, user)
     user.update!(
       locked_token: result[:data][:verify_token],
       locked_token_expired_at: Time.zone.now + 1.hour
-    ) 
+    )
   end
-  
+
   def authenticate_deny
     flash.now[:danger] = '不正ログインの可能性が高いため、ログインできませんでした'
   end

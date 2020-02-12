@@ -1,19 +1,20 @@
+# frozen_string_literal: true
 
 Micropost.delete_all
 User.delete_all
-4.times {|index|
+4.times do |index|
   hash = SecureRandom.hex(4)
   user = User.find_or_initialize_by(
-    name:  "Locked Demo #{index}(#{hash})",
+    name: "Locked Demo #{index}(#{hash})",
     email: "takeda+#{hash}@locked.jp",
-    phone_number: "09014201224",
-    activated: true,
+    phone_number: '09014201224',
+    activated: true
   )
-  user.save!({
-    password:              "onetap0507",
-    password_confirmation: "onetap0507"
-  })
-}
+  user.save!(
+    password: 'onetap0507',
+    password_confirmation: 'onetap0507'
+  )
+end
 User.update_all(activated: true, activated_at: Time.zone.now)
 
 users = User.all

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class DemosController < ApplicationController
-
   def index
     @users = User.all
   end
@@ -20,14 +19,14 @@ class DemosController < ApplicationController
     user = User.find_by(email: params[:demos][:email])
 
     authenticate_params = {
-      user_id: "#{user.name}",
+      user_id: user.name.to_s,
       event: '$login.attempt',
       user_ip: request.remote_ip,
       user_agent: request.user_agent,
       email: user.email,
-      callback_url: "http://localhost:3232/demos/load",
+      callback_url: 'http://localhost:3232/demos/load',
       device_uuid: cookies[:_locked_device_uuid],
-      fingerprint_hash: cookies[:_locked_hash],
+      fingerprint_hash: cookies[:_locked_hash]
     }
 
     if user.name.start_with?(/Locked Demo 0/)
@@ -39,24 +38,24 @@ class DemosController < ApplicationController
       authenticate_params[:sms_country_code] = 'JP'
     elsif  user.name.start_with?(/Locked Demo 3/)
     end
-    pp verdict = LockedAuthenticateService.new("ce29e4977346f3070ff61c4a4026", authenticate_params).call
+    pp verdict = LockedAuthenticateService.new('ce29e4977346f3070ff61c4a4026', authenticate_params).call
     case verdict[:data][:action]
-		when 'allow'
+    when 'allow'
       log_in user
       redirect_back_or user
-		when 'verify'
+    when 'verify'
       user.update!(
         locked_token: verdict[:data][:verify_token],
         locked_token_expired_at: Time.zone.now + 1.hour
       )
       render 'verify'
-		when 'deny'
+    when 'deny'
       flash.now[:danger] = '不正ログインの可能性が高いため、ログインできませんでした'
       render 'new'
     when 'none'
       log_in user
       redirect_back_or user
-		end
+    end
   end
 
   def load
@@ -70,5 +69,4 @@ class DemosController < ApplicationController
       redirect_to root_url
     end
   end
-
 end

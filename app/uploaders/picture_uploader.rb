@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_limit: [400, 400]
@@ -8,7 +10,6 @@ class PictureUploader < CarrierWave::Uploader::Base
     storage :file
   end
 
-
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -16,7 +17,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
-
 end
