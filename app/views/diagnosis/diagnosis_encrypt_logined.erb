@@ -4,7 +4,7 @@
 <%= javascript_tag do %>
   let cli = new Locked({
     clientKey: '<%= clientKey %>',
-    signature: '<%= OpenSSL::HMAC.hexdigest('sha256', clientKey, secureSalt) %>'
+    signature: '<%= OpenSSL::HMAC.hexdigest('sha256', clientKey, client_secret) %>'
   })
-  cli.monitor({email: '<%= encrypt(@user.email, secureSalt) %>', userId: '<%= @user.id%>'})
+  cli.monitor({email: '<%= encrypt(@user.email, client_secret) %>', userId: '<%= @user.id%>'})
 <% end %>

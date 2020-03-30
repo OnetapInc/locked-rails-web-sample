@@ -21,7 +21,7 @@ app/helpers/application_helper.rb
     '972e0bf855e95b36cd6c832e4de5'
   end
 
-  def secureSalt
+  def client_secret
     '45770fd6be933cb220f7f6630ccb6007'
   end
 ```

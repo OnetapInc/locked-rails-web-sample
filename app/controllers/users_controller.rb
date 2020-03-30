@@ -28,6 +28,10 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    pp 'userparams-='
+    pp user_params
+    pp 'params-='
+    pp params
     @user = User.new(user_params)
     if @user.save # => Validation
       # Sucess

@@ -12,10 +12,10 @@ module ApplicationHelper
   end
 
   def clientKey
-    'e0abfb988b93f5780f7756bfc2d9'
+    'b08627d9d60223979d0cf0e2c7a3d943'
   end
 
-  def secureSalt
-    '0fd6ff304f7d0a32dbad6d8335062995'
+  def client_secret
+    'b64f196ebbb5a46bd21aff240d339b42'
   end
 end
